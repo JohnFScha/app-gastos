@@ -18,13 +18,13 @@ export default function Form({ title }: { title: string }) {
           <form className="flex flex-col gap-5 items-center border-2 rounded-lg p-4 w-full lg:w-4/6 font-[400] hover:bg-slate-900 transition-all duration-200" onSubmit={(e) => calculatePercentage(e, setValue)}>
             <h2 className="text-lg">{title}</h2>
             <Input
-              type='number'
+              type='text'
               name='ingresos1'
               labelText="Martin"
               placeholder='Suba ingresos mensuales'
             />
             <Input
-              type='number'
+              type='text'
               name='ingresos2'
               labelText="Fran"
               placeholder='Suba ingresos mensuales'

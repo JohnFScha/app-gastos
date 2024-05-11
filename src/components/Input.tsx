@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 export default function Input({ type, name, labelText, placeholder }: InputProps<string>) {
-  const [value, setValue] = useState<number>(0);
+  const [value, setValue] = useState("");
 
   return (
     <article className='flex flex-col gap-2 w-full'>
@@ -14,7 +14,7 @@ export default function Input({ type, name, labelText, placeholder }: InputProps
         placeholder={placeholder}
         className='input input-bordered input-accent'
         value={value}
-        onChange={(e) => setValue(Number(e?.currentTarget?.value))}
+        onChange={(e) => setValue(e?.currentTarget?.value)}
         required 
       />
     </article>
