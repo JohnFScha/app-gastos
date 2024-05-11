@@ -31,8 +31,9 @@ function App() {
         <label htmlFor="notes" className='label text-xl font-semibold'>Notas</label>
         <textarea name="notes" id="notes" className='text-xl container textarea-bordered textarea textarea-accent border-white min-h-[20vh]'></textarea>
       </section>
-      <button className='btn btn-circle btn-accent fixed bottom-[2%] xl:top-[5%] right-[1%] size-[60px]' onClick={() => audioPlayer(audioRef)}>
+      <button type="button" className='btn btn-circle btn-accent fixed bottom-[2%] xl:top-[5%] right-[1%] size-[60px]' onClick={() => audioPlayer(audioRef)}>
         {playing ? (<FaPause className='text-xl' />) : (<FaPlay />)}
+        <p className='sr-only'>play</p>
       </button>
       <audio src={loki} ref={audioRef}></audio>
     </main>

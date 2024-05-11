@@ -3,5 +3,7 @@
   "short-name": "PWA",
   "description": "App para repartir gastos con el loquito",
   "start-url": "/",
-  "display": "standalone"
+  "display": "standalone",
+  "background-color": "#000",
+  "theme-color": "#000"
 }
