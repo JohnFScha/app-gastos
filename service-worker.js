@@ -1,7 +1,7 @@
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open('my-cache').then((cache) => {
-      return cache.addAll(['/', '/index.html', '/manifest.json', '/vite.svg'])
+      return cache.addAll(['/', '/index.html', '/manifest.json', '/public/vite.png'])
     })
   )
 })

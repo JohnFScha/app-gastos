@@ -5,5 +5,12 @@
   "start-url": "/",
   "display": "standalone",
   "background-color": "#000",
-  "theme-color": "#000"
+  "theme-color": "#000",
+  "icons": [
+    {
+      "src": "/public/vite.png",
+      "type": "image/svg+xml",
+      "sizes": "512x512"
+    }
+  ]
 }
