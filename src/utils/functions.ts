@@ -34,8 +34,6 @@ export function calculateExpenses(event: FormEvent<HTMLFormElement>, setTotal: (
   const gastos1 = Number(formData.get('gastos1'))
   const gastos2 = Number(formData.get('gastos2'))
 
-  console.log(percent)
-
   const total = gastos1 + gastos2
 
   const totalMartin = Math.round((total * percent) / 100)

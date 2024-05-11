@@ -5,18 +5,14 @@ import { useValueStore, useTotalStore } from "../store/store"
 export default function Form({ title }: { title: string }) {
   const value = useValueStore((state) => state.value)
   const setValue = useValueStore((state) => state.change)
-  const total = useTotalStore((state) => state.total)
   const setTotal = useTotalStore((state) => state.change)
-
-  console.log('total: ', total)
-  console.log('ingresos: ', value)
 
   return (
     <>
       {
         title.includes('Ingresos') ? (
           <form className="flex flex-col gap-5 items-center border-2 rounded-lg p-4 w-full lg:w-4/6 font-[400] hover:bg-slate-900 transition-all duration-200" onSubmit={(e) => calculatePercentage(e, setValue)}>
-            <h2 className="text-lg">{title}</h2>
+            <h2 className="text-lg font-semibold">{title}</h2>
             <Input
               type='text'
               name='ingresos1'
@@ -33,7 +29,7 @@ export default function Form({ title }: { title: string }) {
           </form>
         ) : (
           <form className="flex flex-col gap-5 items-center border-2 rounded-lg p-4 w-full lg:w-4/6 font-[400] hover:bg-slate-900 transition-all duration-200" onSubmit={(e) => calculateExpenses(e, setTotal, value[0])}>
-            <h2 className="text-lg">{title}</h2>
+            <h2 className="text-lg font-semibold">{title}</h2>
             <Input
               type="number"
               name='gastos1'
