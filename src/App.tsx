@@ -3,9 +3,9 @@ import Form from './components/Form'
 function App() {
 
   return (
-    <main className='min-h-screen flex flex-col justify-center items-center gap-5 p-10'>
-      <h1 className='text-6xl font-[900] stroke-2'>Calculadora de loquis</h1>
-      <section className='container flex flex-col items-center lg:flex-row border-2 p-10 rounded-xl gap-10'>
+    <main className='min-h-screen flex flex-col justify-center items-center gap-5 p-5 xl:p-10'>
+      <h1 className='text-2xl xl:text-6xl font-[900] stroke-2'>Calculadora de loquis</h1>
+      <section className='container flex flex-col items-center lg:flex-row border-2 p-5 xl:p-10 rounded-xl gap-10'>
         <Form title='Ingresos' />
         <Form title='Gastos' />
       </section>
