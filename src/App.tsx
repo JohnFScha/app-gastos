@@ -12,6 +12,7 @@ function App() {
     console.log(ref)
     if (ref?.current?.paused) {
       ref.current.play()
+      ref.current.controls =true
       setIsPlaying(true)
     } else {
       ref?.current?.pause()

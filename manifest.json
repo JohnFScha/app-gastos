@@ -1,0 +1,7 @@
+{
+  "name": "Calculoqui",
+  "short-name": "PWA",
+  "description": "App para repartir gastos con el loquito",
+  "start-url": "/",
+  "display": "standalone"
+}

@@ -11,6 +11,7 @@ export default function Input({ type, name, labelText, placeholder }: InputProps
       <input
         type={type}
         name={name}
+        id={name}
         placeholder={placeholder}
         className='input input-bordered input-accent'
         value={value}
