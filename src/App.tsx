@@ -1,5 +1,5 @@
 import Form from './components/Form'
-
+import loki from './assets/loki.mp3'
 function App() {
 
   return (
@@ -13,6 +13,7 @@ function App() {
         <label htmlFor="notes" className='label text-xl'>Notas</label>
         <textarea name="notes" id="notes" className='text-xl container textarea-bordered textarea textarea-accent min-h-[20vh]'></textarea>
       </section>
+      <audio src={loki} controls={true} controlsList='nodownload' className='fixed xl:absolute bottom-[2%] xl:top-[2%] right-[2%] w-[25%] xl:w-[6%]'></audio>
     </main>
   )
 }
