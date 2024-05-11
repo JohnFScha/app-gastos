@@ -1,4 +1,4 @@
-import { Dispatch, FormEvent, SetStateAction } from "react"
+import { FormEvent} from "react"
 import Swal from 'sweetalert2'
 
 export function calculatePercentage(event: FormEvent<HTMLFormElement>, setValue: (to: number[]) => void) {
