@@ -1,22 +1,20 @@
 import Form from './components/Form'
 import loki from './assets/loki.mp3'
-import { useRef, useState } from 'react'
+import { MutableRefObject, useRef, useState } from 'react'
 import { FaPlay } from "react-icons/fa";
 import { FaPause } from "react-icons/fa6";
 
 function App() {
   const [playing, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null)
-  const audio = audioRef?.current
 
-  console.log(audio) 
-
-  const audioPlayer = () => {
-    if (audio?.paused) {
-      audio.play()
+  const audioPlayer = (ref: MutableRefObject<HTMLAudioElement | null>) => {
+    console.log(ref)
+    if (ref?.current?.paused) {
+      ref.current.play()
       setIsPlaying(true)
     } else {
-      audio?.pause()
+      ref?.current?.pause()
       setIsPlaying(false)
     }
   } 
@@ -32,12 +30,12 @@ function App() {
         <label htmlFor="notes" className='label text-xl font-semibold'>Notas</label>
         <textarea name="notes" id="notes" className='text-xl container textarea-bordered textarea textarea-accent border-white min-h-[20vh]'></textarea>
       </section>
-      <button className='btn btn-circle btn-accent fixed bottom-[2%] xl:top-[5%] right-[2%] size-[60px]' onClick={audioPlayer}>
+      <button className='btn btn-circle btn-accent fixed bottom-[2%] xl:top-[5%] right-[2%] size-[60px]' onClick={() => audioPlayer(audioRef)}>
         {playing ? (<FaPause className='text-xl' />) : (<FaPlay />)}
-        <audio src={loki} ref={audioRef}></audio>
       </button>
+      <audio src={loki} ref={audioRef}></audio>
     </main>
   )
 }
-
+ 
 export default App
