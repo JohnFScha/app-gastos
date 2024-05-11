@@ -1,5 +1,8 @@
-import { FormEvent} from "react"
+import { FormEvent } from "react"
 import Swal from 'sweetalert2'
+import JSConfetti from 'js-confetti'
+
+const confetti = new JSConfetti()
 
 export function calculatePercentage(event: FormEvent<HTMLFormElement>, setValue: (to: number[]) => void) {
   event.preventDefault()
@@ -30,7 +33,7 @@ export function calculatePercentage(event: FormEvent<HTMLFormElement>, setValue:
 export function calculateExpenses(event: FormEvent<HTMLFormElement>, setTotal: (to: number[]) => void, percent: number) {
   event.preventDefault()
   const formData = new FormData(event?.currentTarget)
-  
+
   const gastos1 = Number(formData.get('gastos1'))
   const gastos2 = Number(formData.get('gastos2'))
 
@@ -50,5 +53,9 @@ export function calculateExpenses(event: FormEvent<HTMLFormElement>, setTotal: (
     background: 'rgb(15 23 42)',
     color: 'white',
     iconColor: 'oklch(74.51% 0.167 183.61 / 1)'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      confetti.addConfetti()
+    }
   })
 }

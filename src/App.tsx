@@ -17,7 +17,7 @@ function App() {
       ref?.current?.pause()
       setIsPlaying(false)
     }
-  } 
+  }
 
   return (
     <main className='min-h-screen flex flex-col justify-center items-center gap-5 p-5'>
@@ -37,5 +37,5 @@ function App() {
     </main>
   )
 }
- 
+
 export default App

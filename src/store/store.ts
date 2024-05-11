@@ -5,7 +5,6 @@ interface Value {
   change: (to: number[]) => void
 }
 
-
 interface Total {
   total: number[]
   change: (to: number[]) => void
