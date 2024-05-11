@@ -2,15 +2,17 @@
   "name": "Calculoqui",
   "short-name": "PWA",
   "description": "App para repartir gastos con el loquito",
+  "prefer_related_applications": true,
   "start-url": "/",
   "display": "standalone",
-  "background-color": "#000",
-  "theme-color": "#000",
+  "background-color": "black",
+  "theme-color": "black",
   "icons": [
     {
       "src": "/public/vite.png",
       "type": "image/svg+xml",
-      "sizes": "512x512"
+      "sizes": ["512x512", "192x192"],
+      "purpuse": "favicon"
     }
   ]
 }
