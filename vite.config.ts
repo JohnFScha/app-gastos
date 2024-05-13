@@ -11,22 +11,32 @@ export default defineConfig({
       includeAssets: ['money.svg', 'money_small.svg'],
       manifest: {
         name: 'Calculoqui',
-        short_name: 'PWA',
-        description: 'App para repartir gastos con el loqui',
+        short_name: 'Calculoqui',
+        description: 'App para repartir gastos con el loquito',
         background_color: 'black',
         theme_color: 'black',
         icons: [
           {
-            src: 'money.svg',
-            sizes: '144x144',
-            type: 'image/svg',
-            purpose: 'any'
-          }, 
+            src: 'pwa-192x192.png',
+            sizes: '192x192',
+            type: 'image/png'
+          },
           {
-            src: 'money_small.svg',
-            sizes: '52x52',
-            type: 'image/svg',
+            src: 'pwa-512x512.png',
+            sizes: '512x512',
+            type: 'image/png'
+          },
+          {
+            src: 'pwa-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
             purpose: 'any'
+          },
+          {
+            src: 'pwa-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'maskable'
           }
         ]
       }
