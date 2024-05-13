@@ -59,3 +59,41 @@ export function calculateExpenses(event: FormEvent<HTMLFormElement>, setTotal: (
     }
   })
 }
+
+export default async function alert(setNames: (to: string[]) => void) {
+
+  const { value: formValues } = await Swal.fire({
+    title: "¿Quienes van a repartir?",
+    confirmButtonText: 'Confirmar',
+    confirmButtonColor: 'oklch(74.51% 0.167 183.61 / 1)',
+    background: 'rgb(15 23 42)',
+    color: 'white',
+    html: `
+      <div class="">
+        <div class="label">
+          <label htmlFor="person1" class="label-text lg:text-xl">Perona 1</label>
+        </div>
+        <input id="swal-input1" name="person1" class="input input-accent w-full p-2" autocomplete="Martin" type="text">
+        <div class="label">
+          <label htmlFor="person2" class="label-text lg:text-xl">Perona 2</label>
+        </div>
+        <input id="swal-input2" name="person2" class="input input-accent w-full p-2" autocomplete="Fran" type="text">
+      </div>
+    `,
+    focusConfirm: false,
+    allowOutsideClick: false,
+    allowEscapeKey: false,
+    preConfirm: () => {
+      return [
+        /* @ts-ignore Working as expected */
+        document?.getElementById("swal-input1")?.value,
+        /* @ts-ignore  Working as expected */
+        document?.getElementById("swal-input2")?.value
+      ];
+    }
+  });
+
+  if (formValues) {
+    setNames(formValues)
+  }
+}

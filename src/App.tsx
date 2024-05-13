@@ -1,18 +1,25 @@
 import Form from './components/Form'
 import loki from './assets/loki.mp3'
-import { MutableRefObject, useRef, useState } from 'react'
+import { MutableRefObject, useEffect, useRef, useState } from 'react'
 import { FaPlay } from "react-icons/fa";
 import { FaPause } from "react-icons/fa6";
+import { useNameStore } from './store/store';
+import alert from './utils/functions';
 
 function App() {
   const [playing, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null)
+  const names = useNameStore((state) => state.names)
+  const setNames = useNameStore((state) => state.change)
+
+  useEffect(() => {
+    alert(setNames)
+  }, []);
 
   const audioPlayer = (ref: MutableRefObject<HTMLAudioElement | null>) => {
     console.log(ref)
     if (ref?.current?.paused) {
       ref.current.play()
-      ref.current.controls =true
       setIsPlaying(true)
     } else {
       ref?.current?.pause()
@@ -22,10 +29,10 @@ function App() {
 
   return (
     <main className='min-h-screen flex flex-col justify-center items-center gap-5 p-5'>
-      <h1 className='text-2xl xl:text-6xl font-[900] stroke-2 border-2 container text-center p-5 hover:bg-slate-900 transition duration-200 rounded-xl'>Calculadora de loquis</h1>
+      <h1 className='text-2xl xl:text-6xl font-[900] stroke-2 border-2 container text-center p-5 hover:bg-slate-900 transition duration-200 rounded-xl'>Calculadora de {names.includes('Martin') && names.includes('Fran') ? 'loquis' : 'gastos'}</h1>
       <section className='container flex flex-col items-center lg:flex-row border-2 p-5 xl:p-10 rounded-xl gap-10'>
-        <Form title='Ingresos' />
-        <Form title='Gastos' />
+        <Form title='Ingresos' names={names} />
+        <Form title='Gastos' names={names} />
       </section>
       <section className='container'>
         <label htmlFor="notes" className='label text-xl font-semibold'>Notas</label>
