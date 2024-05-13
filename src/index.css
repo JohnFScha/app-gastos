@@ -34,3 +34,11 @@ input[type=number] {
 audio::-webkit-media-controls-panel {
   background-color: oklch(74.51% 0.167 183.61 / 1);
 }
+
+.input {
+  background-color: oklch(25.3267% 0.015896 252.417568 / 1) !important;
+}
+
+.textarea {
+  background-color: oklch(25.3267% 0.015896 252.417568 / 1) !important;
+}

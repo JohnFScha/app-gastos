@@ -13,7 +13,7 @@ export default function Input({ type, name, labelText, placeholder }: InputProps
         name={name}
         id={name}
         placeholder={placeholder}
-        className='input input-bordered input-accent'
+        className='input input-bordered input-accent text-base'
         value={value}
         onChange={(e) => setValue(e?.currentTarget?.value)}
         required 
