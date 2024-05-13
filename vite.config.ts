@@ -10,7 +10,7 @@ export default defineConfig({
       injectRegister: 'auto',
       includeAssets: ['money.svg', 'money_small.svg'],
       manifest: {
-        name: 'Calculoqui',
+        name: 'Calculadora de gastos',
         short_name: 'Calculoqui',
         description: 'App para repartir gastos con el loquito',
         background_color: 'black',
