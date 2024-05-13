@@ -71,11 +71,11 @@ export default async function alert(setNames: (to: string[]) => void) {
     html: `
       <div class="">
         <div class="label">
-          <label htmlFor="person1" class="label-text lg:text-xl">Perona 1</label>
+          <label htmlFor="person1" class="label-text lg:text-xl">Persona 1</label>
         </div>
         <input id="swal-input1" name="person1" class="input input-accent w-full p-2" placeholder="Nombre 1" autocomplete="Martin" type="text">
         <div class="label">
-          <label htmlFor="person2" class="label-text lg:text-xl">Perona 2</label>
+          <label htmlFor="person2" class="label-text lg:text-xl">Persona 2</label>
         </div>
         <input id="swal-input2" name="person2" class="input input-accent w-full p-2" placeholder="Nombre 2" autocomplete="Fran" type="text">
       </div>
