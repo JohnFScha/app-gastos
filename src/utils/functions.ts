@@ -4,7 +4,7 @@ import JSConfetti from 'js-confetti'
 
 const confetti = new JSConfetti()
 
-export function calculatePercentage(event: FormEvent<HTMLFormElement>, setValue: (to: number[]) => void) {
+export function calculatePercentage(event: FormEvent<HTMLFormElement>, setValue: (to: number[]) => void, names: string[]) {
   event.preventDefault()
   const formData = new FormData(event?.currentTarget)
 
@@ -21,7 +21,7 @@ export function calculatePercentage(event: FormEvent<HTMLFormElement>, setValue:
   Swal.fire({
     icon: "success",
     title: 'Porcentaje de aporte',
-    html: `<div><p>Martin: ${percent1}%</p><br /><p>Fran: ${percent2}%</p></div>`,
+    html: `<div><p>${names[0]}: ${percent1}%</p><br /><p>${names[1]}: ${percent2}%</p></div>`,
     confirmButtonText: 'Confirmar',
     confirmButtonColor: 'oklch(74.51% 0.167 183.61 / 1)',
     background: 'rgb(15 23 42)',
@@ -30,7 +30,7 @@ export function calculatePercentage(event: FormEvent<HTMLFormElement>, setValue:
   })
 }
 
-export function calculateExpenses(event: FormEvent<HTMLFormElement>, setTotal: (to: number[]) => void, percent: number) {
+export function calculateExpenses(event: FormEvent<HTMLFormElement>, setTotal: (to: number[]) => void, percent: number, names: string[]) {
   event.preventDefault()
   const formData = new FormData(event?.currentTarget)
 
@@ -47,8 +47,8 @@ export function calculateExpenses(event: FormEvent<HTMLFormElement>, setTotal: (
   Swal.fire({
     icon: "success",
     title: 'Pago de cada uno',
-    html: `<div><p>Martin: $${totalMartin}</p> <p>Fran: $${totalFran}</p></div>`,
-    confirmButtonText: 'confirmar',
+    html: `<div><p>${names[0]}: $${totalMartin}</p> <p>${names[1]}: $${totalFran}</p></div>`,
+    confirmButtonText: `Confirmar`,
     confirmButtonColor: 'oklch(74.51% 0.167 183.61 / 1)',
     background: 'rgb(15 23 42)',
     color: 'white',

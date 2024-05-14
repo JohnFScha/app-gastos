@@ -42,3 +42,8 @@ audio::-webkit-media-controls-panel {
 .textarea {
   background-color: oklch(25.3267% 0.015896 252.417568 / 1) !important;
 }
+
+div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
+  color: black;
+  font-weight: 700;
+}
