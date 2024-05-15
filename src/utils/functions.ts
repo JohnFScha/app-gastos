@@ -37,22 +37,18 @@ export function calculateExpenses(event: FormEvent<HTMLFormElement>, percent: nu
   const gastos1 = Number(formData.get('gastos1'))
   const gastos2 = Number(formData.get('gastos2'))
 
-  //* Martin paga a fran
   let persona1: Person = {
     subtotal: Math.round((gastos1 * percent[1] / 100)),
     nombre: names[0],
     total: 0
   }
-  //* Martin paga a fran
   let persona2: Person = {
     subtotal: Math.round((gastos2 * percent[0]) / 100),
     nombre: names[1],
     total: 0
   }
 
-  //* Fran paga a martin
   const subtotal = persona1.subtotal < persona2.subtotal;
-  console.log('subtotal', subtotal)
  
   persona2.total = persona2.subtotal - persona1.subtotal 
   persona1.total = persona1.subtotal - persona2.subtotal;
