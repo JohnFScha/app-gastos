@@ -6,3 +6,9 @@ type InputProps<T> = {
   labelText: T, 
   placeholder: T
 }
+
+type Person = {
+  nombre: string
+  subtotal: number
+  total: number | undefined
+}

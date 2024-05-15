@@ -30,24 +30,36 @@ export function calculatePercentage(event: FormEvent<HTMLFormElement>, setValue:
   })
 }
 
-export function calculateExpenses(event: FormEvent<HTMLFormElement>, setTotal: (to: number[]) => void, percent: number, names: string[]) {
+export function calculateExpenses(event: FormEvent<HTMLFormElement>, percent: number[], names: string[]) {
   event.preventDefault()
   const formData = new FormData(event?.currentTarget)
 
   const gastos1 = Number(formData.get('gastos1'))
   const gastos2 = Number(formData.get('gastos2'))
 
-  const total = gastos1 + gastos2
+  //* Martin paga a fran
+  let persona1: Person = {
+    subtotal: Math.round((gastos1 * percent[1] / 100)),
+    nombre: names[0],
+    total: 0
+  }
+  //* Martin paga a fran
+  let persona2: Person = {
+    subtotal: Math.round((gastos2 * percent[0]) / 100),
+    nombre: names[1],
+    total: 0
+  }
 
-  const totalMartin = Math.round((total * percent) / 100)
-  const totalFran = Math.round(total - totalMartin)
-
-  setTotal([totalMartin, totalFran])
+  //* Fran paga a martin
+  const subtotal = persona1.subtotal < persona2.subtotal;
+  console.log('subtotal', subtotal)
+ 
+  persona2.total = persona2.subtotal - persona1.subtotal 
+  persona1.total = persona1.subtotal - persona2.subtotal;
 
   Swal.fire({
     icon: "success",
-    title: 'Pago de cada uno',
-    html: `<div><p>${names[0]}: $${totalMartin}</p> <p>${names[1]}: $${totalFran}</p></div>`,
+    title: `${subtotal ? `<div><p>${persona1.nombre} debe pagar a ${persona2.nombre}: $${persona2.total}</p></div>` : `<div><p>${persona2.nombre} debe pagar a ${persona1.nombre}: $${persona1.total}</p></div>`}`,
     confirmButtonText: `Confirmar`,
     confirmButtonColor: 'oklch(74.51% 0.167 183.61 / 1)',
     background: 'rgb(15 23 42)',

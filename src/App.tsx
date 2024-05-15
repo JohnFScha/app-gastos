@@ -13,7 +13,9 @@ function App() {
   const setNames = useNameStore((state) => state.change)
 
   useEffect(() => {
-    alert(setNames)
+    if(names.length === 0) {
+      alert(setNames)
+    }
   }, []);
 
   const audioPlayer = (ref: MutableRefObject<HTMLAudioElement | null>) => {
