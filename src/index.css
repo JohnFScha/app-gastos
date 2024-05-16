@@ -5,19 +5,9 @@
 @tailwind utilities;
 
 body {
-  color-scheme: dark;
-  background-color: black;
-  color: white;
   font-family: 'Montserrat', sans-serif;
 }
 
-.stroke-2 {
-  color: oklch(74.51% 0.167 183.61 / 1);
-}
-
-.font-semibold {
-  color: oklch(74.51% 0.167 183.61 / 1);
-}
 
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
@@ -33,14 +23,6 @@ input[type=number] {
 
 audio::-webkit-media-controls-panel {
   background-color: oklch(74.51% 0.167 183.61 / 1);
-}
-
-.input {
-  background-color: oklch(25.3267% 0.015896 252.417568 / 1) !important;
-}
-
-.textarea {
-  background-color: oklch(25.3267% 0.015896 252.417568 / 1) !important;
 }
 
 div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {

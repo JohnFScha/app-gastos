@@ -68,24 +68,23 @@ export function calculateExpenses(event: FormEvent<HTMLFormElement>, percent: nu
   })
 }
 
-export default async function alert(setNames: (to: string[]) => void) {
+export default async function alert(theme: string, setNames: (to: string[]) => void) {
 
   const { value: formValues } = await Swal.fire({
     title: "¿Quienes van a repartir?",
     confirmButtonText: 'Confirmar',
     confirmButtonColor: 'oklch(74.51% 0.167 183.61 / 1)',
-    background: 'rgb(15 23 42)',
-    color: 'white',
+    background: theme === 'dark' ? '#000019' : '#eeeeee',
     html: `
-      <div class="">
+      <div  >
         <div class="label">
           <label htmlFor="person1" class="label-text lg:text-xl">Persona 1</label>
         </div>
-        <input id="swal-input1" name="person1" class="input input-accent w-full p-2" placeholder="Nombre 1" autocomplete="Martin" type="text">
+        <input id="swal-input1" name="person1" class="input input-bordered input-accent bg-base-300 text-slate-400 w-full p-2" placeholder="Nombre 1" autocomplete="Martin" type="text">
         <div class="label">
           <label htmlFor="person2" class="label-text lg:text-xl">Persona 2</label>
         </div>
-        <input id="swal-input2" name="person2" class="input input-accent w-full p-2" placeholder="Nombre 2" autocomplete="Fran" type="text">
+        <input id="swal-input2" name="person2" class="input input-bordered input-accent bg-base-300 text-slate-400 w-full p-2" placeholder="Nombre 2" autocomplete="Fran" type="text">
       </div>
     `,
     focusConfirm: false,
