@@ -3,23 +3,24 @@ import loki from './assets/loki.mp3'
 import { MutableRefObject, useEffect, useRef, useState } from 'react'
 import { FaPlay } from "react-icons/fa";
 import { FaPause } from "react-icons/fa6";
-import { useNameStore, useThemeStore } from './store/store';
+import { useNameStore } from './store/store';
 import alert from './utils/functions';
-import ThemeToggle from "./components/ThemeToggler";
+import useThemeDetector from './hooks/useSystemTheme';
+
 function App() {
   const [playing, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const names = useNameStore((state) => state.names)
   const setNames = useNameStore((state) => state.change)
-  const theme = useThemeStore((state) => state.theme)
+  const theme = useThemeDetector()
 
   const easterEgg = names.includes('Martin') && names.includes('Fran');
 
   useEffect(() => {
     if (names.length === 0) {
-      alert(theme, setNames)
+      alert(setNames)
     }
-  }, []);
+  }, [theme, names]);
 
   const audioPlayer = (ref: MutableRefObject<HTMLAudioElement | null>) => {
     console.log(ref)
@@ -45,7 +46,6 @@ function App() {
       </section>
 
       <section className='flex flex-col gap-5 fixed bottom-[2%] xl:top-[5%] right-[1%]'>
-        <ThemeToggle />
         {easterEgg && (
           <button type="button" className='btn btn-circle btn-accent size-[60px]' onClick={() => audioPlayer(audioRef)}>
             {playing ? (<FaPause className='text-xl' />) : (<FaPlay className='text-xl' />)}

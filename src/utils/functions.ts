@@ -4,6 +4,8 @@ import JSConfetti from 'js-confetti'
 
 const confetti = new JSConfetti()
 
+const getCurrentTheme = () => window.matchMedia("(prefers-color-scheme: dark)").matches;  
+
 export function calculatePercentage(event: FormEvent<HTMLFormElement>, setValue: (to: number[]) => void, names: string[]) {
   event.preventDefault()
   const formData = new FormData(event?.currentTarget)
@@ -68,13 +70,13 @@ export function calculateExpenses(event: FormEvent<HTMLFormElement>, percent: nu
   })
 }
 
-export default async function alert(theme: string, setNames: (to: string[]) => void) {
+export default async function alert(setNames: (to: string[]) => void) {
 
   const { value: formValues } = await Swal.fire({
     title: "¿Quienes van a repartir?",
     confirmButtonText: 'Confirmar',
     confirmButtonColor: 'oklch(74.51% 0.167 183.61 / 1)',
-    background: theme === 'dark' ? '#000019' : '#eeeeee',
+    background: getCurrentTheme() ? '#000019' : '#eeeeee',
     html: `
       <div  >
         <div class="label">
