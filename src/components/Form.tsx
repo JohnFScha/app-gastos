@@ -2,7 +2,6 @@ import Input from "./Input"
 import { calculatePercentage, calculateExpenses } from "../utils/functions"
 import { useValueStore } from "../store/store"
 import useThemeDetector from "../hooks/useSystemTheme"
-import { useEffect } from "react"
 
 export default function Form({ title, names }: { title: string, names: string[] }) {
   const value = useValueStore((state) => state.value)

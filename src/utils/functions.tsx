@@ -21,19 +21,14 @@ export function calculatePercentage(theme: boolean, event: FormEvent<HTMLFormEle
 
   setValue([percent1, percent2])
 
-  const CustomBackground = MySwal.mixin({
-    customClass: {
-      popup: theme ? 'bg-black' : 'bg-white'
-    }
-  })
-
-  return CustomBackground.fire({
+  return MySwal.fire({
     icon: "success",
     iconColor: 'oklch(74.51% 0.167 183.61 / 1)',
     title: <p className={theme ? "text-white" : "text-black"}>Porcentaje de aporte</p>,
     html: <div className={theme ? 'text-white' : 'text-black'}><p>{names[0]}: {percent1}%</p><br /><p>{names[1]}: ${percent2}%</p></div>,
     confirmButtonText: 'Confirmar',
     confirmButtonColor: 'oklch(74.51% 0.167 183.61 / 1)',
+    background: theme ? '#000029' : '#f1f1f1',
   })
 }
 
@@ -60,18 +55,13 @@ export function calculateExpenses(theme: boolean, event: FormEvent<HTMLFormEleme
   persona2.total = persona2.subtotal - persona1.subtotal;
   persona1.total = persona1.subtotal - persona2.subtotal;
 
-  const CustomBackground = MySwal.mixin({
-    customClass: {
-      popup: theme ? 'bg-black' : 'bg-white'
-    }
-  })
-
-  return CustomBackground.fire({
+  return MySwal.fire({
     icon: "success",
     iconColor: 'oklch(74.51% 0.167 183.61 / 1)',
     title: subtotal ? <div className={theme ? 'text-white' : 'text-black'}><p>{persona1.nombre} debe pagar a {persona2.nombre}: ${persona2.total}</p></div> : <div className={theme ? 'text-white' : 'text-black'}><p>{persona2.nombre} debe pagar a {persona1.nombre}: ${persona1.total}</p></div>,
     confirmButtonText: `Confirmar`,
     confirmButtonColor: 'oklch(74.51% 0.167 183.61 / 1)',
+    background: theme ? '#000029' : '#f1f1f1',
   }).then((result) => {
     if (result.isConfirmed) {
       confetti.addConfetti()
