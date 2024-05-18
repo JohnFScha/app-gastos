@@ -18,8 +18,8 @@ function App() {
 
   useEffect(() => {
     if (names.length === 0) {
-      alert(setNames)
-    }
+      alert(theme, setNames)
+    } 
   }, [theme, names]);
 
   const audioPlayer = (ref: MutableRefObject<HTMLAudioElement | null>) => {

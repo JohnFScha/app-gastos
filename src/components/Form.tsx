@@ -1,16 +1,19 @@
 import Input from "./Input"
 import { calculatePercentage, calculateExpenses } from "../utils/functions"
 import { useValueStore } from "../store/store"
+import useThemeDetector from "../hooks/useSystemTheme"
+import { useEffect } from "react"
 
 export default function Form({ title, names }: { title: string, names: string[] }) {
   const value = useValueStore((state) => state.value)
   const setValue = useValueStore((state) => state.change)
+  const theme = useThemeDetector()
 
   return (
     <>
       {
         title.includes('Ingresos') ? (
-          <form className="flex flex-col gap-5 items-center border-2 rounded-lg p-4 w-full lg:w-4/6 font-[400] hover:bg-base-200 transition-all duration-200" onSubmit={(e) => calculatePercentage(e, setValue, names)}>
+          <form className="flex flex-col gap-5 items-center border-2 rounded-lg p-4 w-full lg:w-4/6 font-[400] hover:bg-base-200 transition-all duration-200" onSubmit={(e) => calculatePercentage(theme, e, setValue, names)}>
             <h2 className="text-lg font-semibold">{title}</h2>
             <Input
               type='number'
@@ -27,7 +30,7 @@ export default function Form({ title, names }: { title: string, names: string[] 
             <button type="submit" className="btn btn-accent w-full lg:w-1/3 xl:text-lg" >Calcular</button>
           </form>
         ) : (
-          <form className="flex flex-col gap-5 items-center border-2 rounded-lg p-4 w-full lg:w-4/6 font-[400] hover:bg-base-200 transition-all duration-200" onSubmit={(e) => calculateExpenses(e, value, names)}>
+          <form className="flex flex-col gap-5 items-center border-2 rounded-lg p-4 w-full lg:w-4/6 font-[400] hover:bg-base-200 transition-all duration-200" onSubmit={(e) => calculateExpenses(theme, e, value, names)}>
             <h2 className="text-lg font-semibold">{title}</h2>
             <Input
               type="number"
