@@ -42,7 +42,7 @@ function App() {
       </section>
       <section className='container'>
         <label htmlFor="notes" className='label text-xl font-semibold'>Notas</label>
-        <textarea name="notes" id="notes" className='text-xl container textarea-bordered textarea bg-base-200 textarea-accent min-h-[20vh]'></textarea>
+        <textarea name="notes" id="notes" className='text-xl container textarea-bordered textarea bg-base-300 textarea-accent min-h-[20vh]'></textarea>
       </section>
 
       <section className='flex flex-col gap-5 fixed bottom-[2%] xl:top-[5%] right-[1%]'>
