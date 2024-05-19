@@ -93,14 +93,15 @@ export default async function alert(theme: boolean, setNames: (to: string[]) => 
     preConfirm: () => {
       return [
         /* @ts-ignore Working as expected */
-        document?.getElementById("swal-input1")?.value,
+        document?.getElementById("swal-input1")?.value ?? undefined ? document?.getElementById("swal-input1")?.value : 'User 1',
         /* @ts-ignore  Working as expected */
-        document?.getElementById("swal-input2")?.value
+        document?.getElementById("swal-input2")?.value ?? undefined ? document?.getElementById("swal-input2")?.value : 'User 2',
       ];
     }
   });
 
   if (formValues) {
+    console.log(formValues)
     setNames(formValues)
   } 
 }
