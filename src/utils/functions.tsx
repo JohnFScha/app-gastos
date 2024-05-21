@@ -25,7 +25,7 @@ export function calculatePercentage(theme: boolean, event: FormEvent<HTMLFormEle
     icon: "success",
     iconColor: 'oklch(74.51% 0.167 183.61 / 1)',
     title: <p className={theme ? "text-white" : "text-black"}>Porcentaje de aporte</p>,
-    html: <div className={theme ? 'text-white' : 'text-black'}><p>{names[0]}: {percent1}%</p><br /><p>{names[1]}: ${percent2}%</p></div>,
+    html: <div className={theme ? 'text-white' : 'text-black'}><p>{names[0]}: {percent1}%</p><br /><p>{names[1]}: {percent2}%</p></div>,
     confirmButtonText: 'Confirmar',
     confirmButtonColor: 'oklch(74.51% 0.167 183.61 / 1)',
     background: theme ? '#000029' : '#f1f1f1',
